@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express";
 import path from "path";
-import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 
@@ -1163,6 +1162,8 @@ function analyzeScamRuleBased(text: string, _lang: string) {
 // Vite middleware or production static serving
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
+
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -1174,6 +1175,10 @@ async function startServer() {
       console.log(`DhanRaksha server running on http://0.0.0.0:${PORT}`);
     });
   }
+}
+
+if (process.env.NODE_ENV !== "production") {
+  startServer();
 }
 
 if (process.env.NODE_ENV !== "production") {
