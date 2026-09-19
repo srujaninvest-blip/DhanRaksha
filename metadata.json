@@ -1,0 +1,10 @@
+{
+  "name": "Remix DhanRaksha",
+  "description": "DhanRaksha — Voice-first digital and financial literacy companion for rural women across India to learn digital payments safely, overcome digital fear, and protect household savings.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
